@@ -221,7 +221,7 @@ cdef class File:
             if self.path.endswith(".mp3"):
                 mpegFile = <ctypes.MPEGFile *> self.cFile
                 mpegTag = mpegFile.ID3v2Tag(False)
-                if mpegTag != NULL:
+                if mpegTag != NULL and not mpegTag.frameList("APIC").isEmpty():
                     mpegCover = <ctypes.ID3v2AttachedPictureFrame *> mpegTag.frameList("APIC").front()
                     if mpegCover != NULL:
                         return Picture(toUnicode(mpegCover.mimeType()),
@@ -230,7 +230,8 @@ cdef class File:
                 mp4File = <ctypes.MP4File *> self.cFile
                 mp4Tag = mp4File.tag()
                 if mp4Tag != NULL:
-                    mp4CoverList = mp4Tag.itemMap()[ctypes.String("covr", ctypes.Type.UTF8)].toCoverArtList()
+                    mp4CoverList = mp4Tag.itemMap() \
+                        [ctypes.String("covr", ctypes.Type.UTF8)].toCoverArtList()
                     if not mp4CoverList.isEmpty():
                         mimeformat = mp4CoverList.front().format()
                         if mimeformat == ctypes.MP4CoverArtFormat.JPEG:

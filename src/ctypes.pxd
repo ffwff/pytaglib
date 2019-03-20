@@ -77,9 +77,12 @@ cdef extern from 'taglib/attachedpictureframe.h' namespace 'TagLib::ID3v2':
 cdef extern from 'taglib/id3v2tag.h' namespace 'TagLib::ID3v2':
     cdef cppclass ID3v2Frame 'TagLib::ID3v2::Frame':
         pass
+    cdef cppclass ID3v2FrameList 'TagLib::ID3v2::FrameList':
+        bint isEmpty()
+        ID3v2Frame *front()
 
     cdef cppclass ID3v2Tag 'TagLib::ID3v2::Tag':
-        list[ID3v2Frame*] frameList(const char *)
+        ID3v2FrameList frameList(const char *)
 
 cdef extern from 'taglib/mpegfile.h' namespace 'TagLib::MPEG':
     cdef cppclass MPEGFile 'TagLib::MPEG::File':

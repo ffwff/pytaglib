@@ -4,6 +4,12 @@
 {
     "distutils": {
         "depends": [],
+        "extra_compile_args": [
+            "-g"
+        ],
+        "extra_link_args": [
+            "-g"
+        ],
         "language": "c++",
         "libraries": [
             "tag"
@@ -863,7 +869,7 @@ static const char *__pyx_f[] = {
 struct __pyx_obj_6taglib_File;
 
 /* "taglib.pyx":44
- *         self.picture = picture
+ *         self.data = data
  * 
  * cdef class File:             # <<<<<<<<<<<<<<
  *     """Class representing an audio file with metadata ("tags").
@@ -1525,6 +1531,7 @@ static const char __pyx_k_m4a[] = ".m4a";
 static const char __pyx_k_mp3[] = ".mp3";
 static const char __pyx_k_mp4[] = ".mp4";
 static const char __pyx_k_File[] = "File('";
+static const char __pyx_k_data[] = "data";
 static const char __pyx_k_flac[] = ".flac";
 static const char __pyx_k_init[] = "__init__";
 static const char __pyx_k_main[] = "__main__";
@@ -1546,7 +1553,6 @@ static const char __pyx_k_reduce[] = "__reduce__";
 static const char __pyx_k_taglib[] = "taglib";
 static const char __pyx_k_OSError[] = "OSError";
 static const char __pyx_k_Picture[] = "Picture";
-static const char __pyx_k_picture[] = "picture";
 static const char __pyx_k_prepare[] = "__prepare__";
 static const char __pyx_k_version[] = "version";
 static const char __pyx_k_endswith[] = "endswith";
@@ -1591,6 +1597,7 @@ static PyObject *__pyx_kp_u__4;
 static PyObject *__pyx_kp_u__5;
 static PyObject *__pyx_n_s_append;
 static PyObject *__pyx_n_s_cline_in_traceback;
+static PyObject *__pyx_n_s_data;
 static PyObject *__pyx_n_s_decode;
 static PyObject *__pyx_n_s_doc;
 static PyObject *__pyx_n_s_encode;
@@ -1613,7 +1620,6 @@ static PyObject *__pyx_kp_u_mp4;
 static PyObject *__pyx_n_s_name;
 static PyObject *__pyx_kp_s_no_default___reduce___due_to_non;
 static PyObject *__pyx_n_s_path;
-static PyObject *__pyx_n_s_picture;
 static PyObject *__pyx_n_s_prepare;
 static PyObject *__pyx_n_s_pyx_vtable;
 static PyObject *__pyx_n_s_qualname;
@@ -1630,7 +1636,7 @@ static PyObject *__pyx_n_s_test;
 static PyObject *__pyx_n_s_upper;
 static PyObject *__pyx_n_u_utf8;
 static PyObject *__pyx_n_s_version;
-static PyObject *__pyx_pf_6taglib_7Picture___init__(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_mimetype, PyObject *__pyx_v_picture); /* proto */
+static PyObject *__pyx_pf_6taglib_7Picture___init__(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_mimetype, PyObject *__pyx_v_data); /* proto */
 static int __pyx_pf_6taglib_4File___cinit__(struct __pyx_obj_6taglib_File *__pyx_v_self, PyObject *__pyx_v_path); /* proto */
 static int __pyx_pf_6taglib_4File_2__init__(struct __pyx_obj_6taglib_File *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v_path); /* proto */
 static PyObject *__pyx_pf_6taglib_4File_4save(struct __pyx_obj_6taglib_File *__pyx_v_self); /* proto */
@@ -1925,9 +1931,9 @@ static PyObject *__pyx_f_6taglib_propertyMapToDict(TagLib::PropertyMap __pyx_v_m
 /* "taglib.pyx":40
  * class Picture:
  * 
- *     def __init__(self, mimetype, picture):             # <<<<<<<<<<<<<<
+ *     def __init__(self, mimetype, data):             # <<<<<<<<<<<<<<
  *         self.mimetype = mimetype
- *         self.picture = picture
+ *         self.data = data
  */
 
 /* Python wrapper */
@@ -1936,12 +1942,12 @@ static PyMethodDef __pyx_mdef_6taglib_7Picture_1__init__ = {"__init__", (PyCFunc
 static PyObject *__pyx_pw_6taglib_7Picture_1__init__(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_self = 0;
   PyObject *__pyx_v_mimetype = 0;
-  PyObject *__pyx_v_picture = 0;
+  PyObject *__pyx_v_data = 0;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__init__ (wrapper)", 0);
   {
-    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_self,&__pyx_n_s_mimetype,&__pyx_n_s_picture,0};
+    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_self,&__pyx_n_s_mimetype,&__pyx_n_s_data,0};
     PyObject* values[3] = {0,0,0};
     if (unlikely(__pyx_kwds)) {
       Py_ssize_t kw_args;
@@ -1969,7 +1975,7 @@ static PyObject *__pyx_pw_6taglib_7Picture_1__init__(PyObject *__pyx_self, PyObj
         }
         CYTHON_FALLTHROUGH;
         case  2:
-        if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_picture)) != 0)) kw_args--;
+        if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_data)) != 0)) kw_args--;
         else {
           __Pyx_RaiseArgtupleInvalid("__init__", 1, 3, 3, 2); __PYX_ERR(0, 40, __pyx_L3_error)
         }
@@ -1986,7 +1992,7 @@ static PyObject *__pyx_pw_6taglib_7Picture_1__init__(PyObject *__pyx_self, PyObj
     }
     __pyx_v_self = values[0];
     __pyx_v_mimetype = values[1];
-    __pyx_v_picture = values[2];
+    __pyx_v_data = values[2];
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
@@ -1996,42 +2002,42 @@ static PyObject *__pyx_pw_6taglib_7Picture_1__init__(PyObject *__pyx_self, PyObj
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_6taglib_7Picture___init__(__pyx_self, __pyx_v_self, __pyx_v_mimetype, __pyx_v_picture);
+  __pyx_r = __pyx_pf_6taglib_7Picture___init__(__pyx_self, __pyx_v_self, __pyx_v_mimetype, __pyx_v_data);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_6taglib_7Picture___init__(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_mimetype, PyObject *__pyx_v_picture) {
+static PyObject *__pyx_pf_6taglib_7Picture___init__(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_mimetype, PyObject *__pyx_v_data) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__init__", 0);
 
   /* "taglib.pyx":41
  * 
- *     def __init__(self, mimetype, picture):
+ *     def __init__(self, mimetype, data):
  *         self.mimetype = mimetype             # <<<<<<<<<<<<<<
- *         self.picture = picture
+ *         self.data = data
  * 
  */
   if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_mimetype, __pyx_v_mimetype) < 0) __PYX_ERR(0, 41, __pyx_L1_error)
 
   /* "taglib.pyx":42
- *     def __init__(self, mimetype, picture):
+ *     def __init__(self, mimetype, data):
  *         self.mimetype = mimetype
- *         self.picture = picture             # <<<<<<<<<<<<<<
+ *         self.data = data             # <<<<<<<<<<<<<<
  * 
  * cdef class File:
  */
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_picture, __pyx_v_picture) < 0) __PYX_ERR(0, 42, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_data, __pyx_v_data) < 0) __PYX_ERR(0, 42, __pyx_L1_error)
 
   /* "taglib.pyx":40
  * class Picture:
  * 
- *     def __init__(self, mimetype, picture):             # <<<<<<<<<<<<<<
+ *     def __init__(self, mimetype, data):             # <<<<<<<<<<<<<<
  *         self.mimetype = mimetype
- *         self.picture = picture
+ *         self.data = data
  */
 
   /* function exit code */
@@ -3274,7 +3280,7 @@ static PyObject *__pyx_pf_6taglib_4File_8close(struct __pyx_obj_6taglib_File *__
  *         del self.cFile
  *         self.cFile = NULL             # <<<<<<<<<<<<<<
  * 
- *     '''
+ *     def __dealloc__(self):
  */
   __pyx_v_self->cFile = NULL;
 
@@ -3293,8 +3299,8 @@ static PyObject *__pyx_pf_6taglib_4File_8close(struct __pyx_obj_6taglib_File *__
   return __pyx_r;
 }
 
-/* "taglib.pyx":182
- * 
+/* "taglib.pyx":173
+ *         self.cFile = NULL
  * 
  *     def __dealloc__(self):             # <<<<<<<<<<<<<<
  *         if self.cFile:
@@ -3317,7 +3323,7 @@ static void __pyx_pf_6taglib_4File_10__dealloc__(struct __pyx_obj_6taglib_File *
   int __pyx_t_1;
   __Pyx_RefNannySetupContext("__dealloc__", 0);
 
-  /* "taglib.pyx":183
+  /* "taglib.pyx":174
  * 
  *     def __dealloc__(self):
  *         if self.cFile:             # <<<<<<<<<<<<<<
@@ -3327,7 +3333,7 @@ static void __pyx_pf_6taglib_4File_10__dealloc__(struct __pyx_obj_6taglib_File *
   __pyx_t_1 = (__pyx_v_self->cFile != 0);
   if (__pyx_t_1) {
 
-    /* "taglib.pyx":184
+    /* "taglib.pyx":175
  *     def __dealloc__(self):
  *         if self.cFile:
  *             del self.cFile             # <<<<<<<<<<<<<<
@@ -3336,7 +3342,7 @@ static void __pyx_pf_6taglib_4File_10__dealloc__(struct __pyx_obj_6taglib_File *
  */
     delete __pyx_v_self->cFile;
 
-    /* "taglib.pyx":183
+    /* "taglib.pyx":174
  * 
  *     def __dealloc__(self):
  *         if self.cFile:             # <<<<<<<<<<<<<<
@@ -3345,8 +3351,8 @@ static void __pyx_pf_6taglib_4File_10__dealloc__(struct __pyx_obj_6taglib_File *
  */
   }
 
-  /* "taglib.pyx":182
- * 
+  /* "taglib.pyx":173
+ *         self.cFile = NULL
  * 
  *     def __dealloc__(self):             # <<<<<<<<<<<<<<
  *         if self.cFile:
@@ -3357,7 +3363,7 @@ static void __pyx_pf_6taglib_4File_10__dealloc__(struct __pyx_obj_6taglib_File *
   __Pyx_RefNannyFinishContext();
 }
 
-/* "taglib.pyx":187
+/* "taglib.pyx":178
  * 
  *     property length:
  *         def __get__(self):             # <<<<<<<<<<<<<<
@@ -3385,7 +3391,7 @@ static PyObject *__pyx_pf_6taglib_4File_6length___get__(struct __pyx_obj_6taglib
   PyObject *__pyx_t_2 = NULL;
   __Pyx_RefNannySetupContext("__get__", 0);
 
-  /* "taglib.pyx":188
+  /* "taglib.pyx":179
  *     property length:
  *         def __get__(self):
  *             if not self.cFile:             # <<<<<<<<<<<<<<
@@ -3395,20 +3401,20 @@ static PyObject *__pyx_pf_6taglib_4File_6length___get__(struct __pyx_obj_6taglib
   __pyx_t_1 = ((!(__pyx_v_self->cFile != 0)) != 0);
   if (unlikely(__pyx_t_1)) {
 
-    /* "taglib.pyx":189
+    /* "taglib.pyx":180
  *         def __get__(self):
  *             if not self.cFile:
  *                 raise ValueError('I/O operation on closed file.')             # <<<<<<<<<<<<<<
  *             return self.cFile.audioProperties().length()
  * 
  */
-    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple_, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 189, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple_, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 180, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_Raise(__pyx_t_2, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __PYX_ERR(0, 189, __pyx_L1_error)
+    __PYX_ERR(0, 180, __pyx_L1_error)
 
-    /* "taglib.pyx":188
+    /* "taglib.pyx":179
  *     property length:
  *         def __get__(self):
  *             if not self.cFile:             # <<<<<<<<<<<<<<
@@ -3417,7 +3423,7 @@ static PyObject *__pyx_pf_6taglib_4File_6length___get__(struct __pyx_obj_6taglib
  */
   }
 
-  /* "taglib.pyx":190
+  /* "taglib.pyx":181
  *             if not self.cFile:
  *                 raise ValueError('I/O operation on closed file.')
  *             return self.cFile.audioProperties().length()             # <<<<<<<<<<<<<<
@@ -3425,13 +3431,13 @@ static PyObject *__pyx_pf_6taglib_4File_6length___get__(struct __pyx_obj_6taglib
  *     property bitrate:
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_self->cFile->audioProperties()->length()); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 190, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_self->cFile->audioProperties()->length()); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 181, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
   goto __pyx_L0;
 
-  /* "taglib.pyx":187
+  /* "taglib.pyx":178
  * 
  *     property length:
  *         def __get__(self):             # <<<<<<<<<<<<<<
@@ -3450,7 +3456,7 @@ static PyObject *__pyx_pf_6taglib_4File_6length___get__(struct __pyx_obj_6taglib
   return __pyx_r;
 }
 
-/* "taglib.pyx":193
+/* "taglib.pyx":184
  * 
  *     property bitrate:
  *         def __get__(self):             # <<<<<<<<<<<<<<
@@ -3478,7 +3484,7 @@ static PyObject *__pyx_pf_6taglib_4File_7bitrate___get__(struct __pyx_obj_6tagli
   PyObject *__pyx_t_2 = NULL;
   __Pyx_RefNannySetupContext("__get__", 0);
 
-  /* "taglib.pyx":194
+  /* "taglib.pyx":185
  *     property bitrate:
  *         def __get__(self):
  *             if not self.cFile:             # <<<<<<<<<<<<<<
@@ -3488,20 +3494,20 @@ static PyObject *__pyx_pf_6taglib_4File_7bitrate___get__(struct __pyx_obj_6tagli
   __pyx_t_1 = ((!(__pyx_v_self->cFile != 0)) != 0);
   if (unlikely(__pyx_t_1)) {
 
-    /* "taglib.pyx":195
+    /* "taglib.pyx":186
  *         def __get__(self):
  *             if not self.cFile:
  *                 raise ValueError('I/O operation on closed file.')             # <<<<<<<<<<<<<<
  *             return self.cFile.audioProperties().bitrate()
  * 
  */
-    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple_, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 195, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple_, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 186, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_Raise(__pyx_t_2, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __PYX_ERR(0, 195, __pyx_L1_error)
+    __PYX_ERR(0, 186, __pyx_L1_error)
 
-    /* "taglib.pyx":194
+    /* "taglib.pyx":185
  *     property bitrate:
  *         def __get__(self):
  *             if not self.cFile:             # <<<<<<<<<<<<<<
@@ -3510,7 +3516,7 @@ static PyObject *__pyx_pf_6taglib_4File_7bitrate___get__(struct __pyx_obj_6tagli
  */
   }
 
-  /* "taglib.pyx":196
+  /* "taglib.pyx":187
  *             if not self.cFile:
  *                 raise ValueError('I/O operation on closed file.')
  *             return self.cFile.audioProperties().bitrate()             # <<<<<<<<<<<<<<
@@ -3518,13 +3524,13 @@ static PyObject *__pyx_pf_6taglib_4File_7bitrate___get__(struct __pyx_obj_6tagli
  *     property sampleRate:
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_self->cFile->audioProperties()->bitrate()); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 196, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_self->cFile->audioProperties()->bitrate()); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 187, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
   goto __pyx_L0;
 
-  /* "taglib.pyx":193
+  /* "taglib.pyx":184
  * 
  *     property bitrate:
  *         def __get__(self):             # <<<<<<<<<<<<<<
@@ -3543,7 +3549,7 @@ static PyObject *__pyx_pf_6taglib_4File_7bitrate___get__(struct __pyx_obj_6tagli
   return __pyx_r;
 }
 
-/* "taglib.pyx":199
+/* "taglib.pyx":190
  * 
  *     property sampleRate:
  *         def __get__(self):             # <<<<<<<<<<<<<<
@@ -3571,7 +3577,7 @@ static PyObject *__pyx_pf_6taglib_4File_10sampleRate___get__(struct __pyx_obj_6t
   PyObject *__pyx_t_2 = NULL;
   __Pyx_RefNannySetupContext("__get__", 0);
 
-  /* "taglib.pyx":200
+  /* "taglib.pyx":191
  *     property sampleRate:
  *         def __get__(self):
  *             if not self.cFile:             # <<<<<<<<<<<<<<
@@ -3581,20 +3587,20 @@ static PyObject *__pyx_pf_6taglib_4File_10sampleRate___get__(struct __pyx_obj_6t
   __pyx_t_1 = ((!(__pyx_v_self->cFile != 0)) != 0);
   if (unlikely(__pyx_t_1)) {
 
-    /* "taglib.pyx":201
+    /* "taglib.pyx":192
  *         def __get__(self):
  *             if not self.cFile:
  *                 raise ValueError('I/O operation on closed file.')             # <<<<<<<<<<<<<<
  *             return self.cFile.audioProperties().sampleRate()
  * 
  */
-    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple_, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 201, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple_, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 192, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_Raise(__pyx_t_2, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __PYX_ERR(0, 201, __pyx_L1_error)
+    __PYX_ERR(0, 192, __pyx_L1_error)
 
-    /* "taglib.pyx":200
+    /* "taglib.pyx":191
  *     property sampleRate:
  *         def __get__(self):
  *             if not self.cFile:             # <<<<<<<<<<<<<<
@@ -3603,7 +3609,7 @@ static PyObject *__pyx_pf_6taglib_4File_10sampleRate___get__(struct __pyx_obj_6t
  */
   }
 
-  /* "taglib.pyx":202
+  /* "taglib.pyx":193
  *             if not self.cFile:
  *                 raise ValueError('I/O operation on closed file.')
  *             return self.cFile.audioProperties().sampleRate()             # <<<<<<<<<<<<<<
@@ -3611,13 +3617,13 @@ static PyObject *__pyx_pf_6taglib_4File_10sampleRate___get__(struct __pyx_obj_6t
  *     property channels:
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_self->cFile->audioProperties()->sampleRate()); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 202, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_self->cFile->audioProperties()->sampleRate()); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 193, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
   goto __pyx_L0;
 
-  /* "taglib.pyx":199
+  /* "taglib.pyx":190
  * 
  *     property sampleRate:
  *         def __get__(self):             # <<<<<<<<<<<<<<
@@ -3636,7 +3642,7 @@ static PyObject *__pyx_pf_6taglib_4File_10sampleRate___get__(struct __pyx_obj_6t
   return __pyx_r;
 }
 
-/* "taglib.pyx":205
+/* "taglib.pyx":196
  * 
  *     property channels:
  *         def __get__(self):             # <<<<<<<<<<<<<<
@@ -3664,7 +3670,7 @@ static PyObject *__pyx_pf_6taglib_4File_8channels___get__(struct __pyx_obj_6tagl
   PyObject *__pyx_t_2 = NULL;
   __Pyx_RefNannySetupContext("__get__", 0);
 
-  /* "taglib.pyx":206
+  /* "taglib.pyx":197
  *     property channels:
  *         def __get__(self):
  *             if not self.cFile:             # <<<<<<<<<<<<<<
@@ -3674,20 +3680,20 @@ static PyObject *__pyx_pf_6taglib_4File_8channels___get__(struct __pyx_obj_6tagl
   __pyx_t_1 = ((!(__pyx_v_self->cFile != 0)) != 0);
   if (unlikely(__pyx_t_1)) {
 
-    /* "taglib.pyx":207
+    /* "taglib.pyx":198
  *         def __get__(self):
  *             if not self.cFile:
  *                 raise ValueError('I/O operation on closed file.')             # <<<<<<<<<<<<<<
  *             return self.cFile.audioProperties().channels()
  * 
  */
-    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple_, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 207, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple_, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 198, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_Raise(__pyx_t_2, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __PYX_ERR(0, 207, __pyx_L1_error)
+    __PYX_ERR(0, 198, __pyx_L1_error)
 
-    /* "taglib.pyx":206
+    /* "taglib.pyx":197
  *     property channels:
  *         def __get__(self):
  *             if not self.cFile:             # <<<<<<<<<<<<<<
@@ -3696,7 +3702,7 @@ static PyObject *__pyx_pf_6taglib_4File_8channels___get__(struct __pyx_obj_6tagl
  */
   }
 
-  /* "taglib.pyx":208
+  /* "taglib.pyx":199
  *             if not self.cFile:
  *                 raise ValueError('I/O operation on closed file.')
  *             return self.cFile.audioProperties().channels()             # <<<<<<<<<<<<<<
@@ -3704,13 +3710,13 @@ static PyObject *__pyx_pf_6taglib_4File_8channels___get__(struct __pyx_obj_6tagl
  *     property readOnly:
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_self->cFile->audioProperties()->channels()); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 208, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_self->cFile->audioProperties()->channels()); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 199, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
   goto __pyx_L0;
 
-  /* "taglib.pyx":205
+  /* "taglib.pyx":196
  * 
  *     property channels:
  *         def __get__(self):             # <<<<<<<<<<<<<<
@@ -3729,7 +3735,7 @@ static PyObject *__pyx_pf_6taglib_4File_8channels___get__(struct __pyx_obj_6tagl
   return __pyx_r;
 }
 
-/* "taglib.pyx":211
+/* "taglib.pyx":202
  * 
  *     property readOnly:
  *         def __get__(self):             # <<<<<<<<<<<<<<
@@ -3757,7 +3763,7 @@ static PyObject *__pyx_pf_6taglib_4File_8readOnly___get__(struct __pyx_obj_6tagl
   PyObject *__pyx_t_2 = NULL;
   __Pyx_RefNannySetupContext("__get__", 0);
 
-  /* "taglib.pyx":212
+  /* "taglib.pyx":203
  *     property readOnly:
  *         def __get__(self):
  *             if not self.cFile:             # <<<<<<<<<<<<<<
@@ -3767,20 +3773,20 @@ static PyObject *__pyx_pf_6taglib_4File_8readOnly___get__(struct __pyx_obj_6tagl
   __pyx_t_1 = ((!(__pyx_v_self->cFile != 0)) != 0);
   if (unlikely(__pyx_t_1)) {
 
-    /* "taglib.pyx":213
+    /* "taglib.pyx":204
  *         def __get__(self):
  *             if not self.cFile:
  *                 raise ValueError('I/O operation on closed file.')             # <<<<<<<<<<<<<<
  *             return self.cFile.readOnly()
  * 
  */
-    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple_, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 213, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple_, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 204, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_Raise(__pyx_t_2, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __PYX_ERR(0, 213, __pyx_L1_error)
+    __PYX_ERR(0, 204, __pyx_L1_error)
 
-    /* "taglib.pyx":212
+    /* "taglib.pyx":203
  *     property readOnly:
  *         def __get__(self):
  *             if not self.cFile:             # <<<<<<<<<<<<<<
@@ -3789,7 +3795,7 @@ static PyObject *__pyx_pf_6taglib_4File_8readOnly___get__(struct __pyx_obj_6tagl
  */
   }
 
-  /* "taglib.pyx":214
+  /* "taglib.pyx":205
  *             if not self.cFile:
  *                 raise ValueError('I/O operation on closed file.')
  *             return self.cFile.readOnly()             # <<<<<<<<<<<<<<
@@ -3797,13 +3803,13 @@ static PyObject *__pyx_pf_6taglib_4File_8readOnly___get__(struct __pyx_obj_6tagl
  *     property picture:
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_2 = __Pyx_PyBool_FromLong(__pyx_v_self->cFile->readOnly()); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 214, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyBool_FromLong(__pyx_v_self->cFile->readOnly()); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 205, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
   goto __pyx_L0;
 
-  /* "taglib.pyx":211
+  /* "taglib.pyx":202
  * 
  *     property readOnly:
  *         def __get__(self):             # <<<<<<<<<<<<<<
@@ -3822,7 +3828,7 @@ static PyObject *__pyx_pf_6taglib_4File_8readOnly___get__(struct __pyx_obj_6tagl
   return __pyx_r;
 }
 
-/* "taglib.pyx":217
+/* "taglib.pyx":208
  * 
  *     property picture:
  *         def __get__(self):             # <<<<<<<<<<<<<<
@@ -3861,21 +3867,21 @@ static PyObject *__pyx_pf_6taglib_4File_7picture___get__(struct __pyx_obj_6tagli
   PyObject *__pyx_t_2 = NULL;
   PyObject *__pyx_t_3 = NULL;
   int __pyx_t_4;
-  PyObject *__pyx_t_5 = NULL;
+  int __pyx_t_5;
   PyObject *__pyx_t_6 = NULL;
-  int __pyx_t_7;
-  PyObject *__pyx_t_8 = NULL;
-  int __pyx_t_9;
+  PyObject *__pyx_t_7 = NULL;
+  int __pyx_t_8;
+  PyObject *__pyx_t_9 = NULL;
   __Pyx_RefNannySetupContext("__get__", 0);
 
-  /* "taglib.pyx":230
+  /* "taglib.pyx":221
  *                 ctypes.FLACFile *flacFile
  *                 ctypes.FLACPicture *flacCover
  *             if self.path.endswith(".mp3"):             # <<<<<<<<<<<<<<
  *                 mpegFile = <ctypes.MPEGFile *> self.cFile
  *                 mpegTag = mpegFile.ID3v2Tag(False)
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->path, __pyx_n_s_endswith); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 230, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->path, __pyx_n_s_endswith); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 221, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -3889,135 +3895,162 @@ static PyObject *__pyx_pf_6taglib_4File_7picture___get__(struct __pyx_obj_6tagli
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_3, __pyx_kp_u_mp3) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_kp_u_mp3);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 230, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 221, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 230, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 221, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_4) {
 
-    /* "taglib.pyx":231
+    /* "taglib.pyx":222
  *                 ctypes.FLACPicture *flacCover
  *             if self.path.endswith(".mp3"):
  *                 mpegFile = <ctypes.MPEGFile *> self.cFile             # <<<<<<<<<<<<<<
  *                 mpegTag = mpegFile.ID3v2Tag(False)
- *                 if mpegTag != NULL:
+ *                 if mpegTag != NULL and not mpegTag.frameList("APIC").isEmpty():
  */
     __pyx_v_mpegFile = ((TagLib::MPEG::File *)__pyx_v_self->cFile);
 
-    /* "taglib.pyx":232
+    /* "taglib.pyx":223
  *             if self.path.endswith(".mp3"):
  *                 mpegFile = <ctypes.MPEGFile *> self.cFile
  *                 mpegTag = mpegFile.ID3v2Tag(False)             # <<<<<<<<<<<<<<
- *                 if mpegTag != NULL:
+ *                 if mpegTag != NULL and not mpegTag.frameList("APIC").isEmpty():
  *                     mpegCover = <ctypes.ID3v2AttachedPictureFrame *> mpegTag.frameList("APIC").front()
  */
     __pyx_v_mpegTag = __pyx_v_mpegFile->ID3v2Tag(0);
 
-    /* "taglib.pyx":233
+    /* "taglib.pyx":224
  *                 mpegFile = <ctypes.MPEGFile *> self.cFile
  *                 mpegTag = mpegFile.ID3v2Tag(False)
- *                 if mpegTag != NULL:             # <<<<<<<<<<<<<<
+ *                 if mpegTag != NULL and not mpegTag.frameList("APIC").isEmpty():             # <<<<<<<<<<<<<<
  *                     mpegCover = <ctypes.ID3v2AttachedPictureFrame *> mpegTag.frameList("APIC").front()
- *                     return Picture(toUnicode(mpegCover.mimeType()),
+ *                     if mpegCover != NULL:
  */
-    __pyx_t_4 = ((__pyx_v_mpegTag != NULL) != 0);
+    __pyx_t_5 = ((__pyx_v_mpegTag != NULL) != 0);
+    if (__pyx_t_5) {
+    } else {
+      __pyx_t_4 = __pyx_t_5;
+      goto __pyx_L5_bool_binop_done;
+    }
+    __pyx_t_5 = ((!(__pyx_v_mpegTag->frameList(((char const *)"APIC")).isEmpty() != 0)) != 0);
+    __pyx_t_4 = __pyx_t_5;
+    __pyx_L5_bool_binop_done:;
     if (__pyx_t_4) {
 
-      /* "taglib.pyx":234
+      /* "taglib.pyx":225
  *                 mpegTag = mpegFile.ID3v2Tag(False)
- *                 if mpegTag != NULL:
+ *                 if mpegTag != NULL and not mpegTag.frameList("APIC").isEmpty():
  *                     mpegCover = <ctypes.ID3v2AttachedPictureFrame *> mpegTag.frameList("APIC").front()             # <<<<<<<<<<<<<<
- *                     return Picture(toUnicode(mpegCover.mimeType()),
- *                                    toBytearray(mpegCover.picture()))
+ *                     if mpegCover != NULL:
+ *                         return Picture(toUnicode(mpegCover.mimeType()),
  */
       __pyx_v_mpegCover = ((TagLib::ID3v2::AttachedPictureFrame *)__pyx_v_mpegTag->frameList(((char const *)"APIC")).front());
 
-      /* "taglib.pyx":235
- *                 if mpegTag != NULL:
+      /* "taglib.pyx":226
+ *                 if mpegTag != NULL and not mpegTag.frameList("APIC").isEmpty():
  *                     mpegCover = <ctypes.ID3v2AttachedPictureFrame *> mpegTag.frameList("APIC").front()
- *                     return Picture(toUnicode(mpegCover.mimeType()),             # <<<<<<<<<<<<<<
- *                                    toBytearray(mpegCover.picture()))
+ *                     if mpegCover != NULL:             # <<<<<<<<<<<<<<
+ *                         return Picture(toUnicode(mpegCover.mimeType()),
+ *                                        toBytearray(mpegCover.picture()))
+ */
+      __pyx_t_4 = ((__pyx_v_mpegCover != NULL) != 0);
+      if (__pyx_t_4) {
+
+        /* "taglib.pyx":227
+ *                     mpegCover = <ctypes.ID3v2AttachedPictureFrame *> mpegTag.frameList("APIC").front()
+ *                     if mpegCover != NULL:
+ *                         return Picture(toUnicode(mpegCover.mimeType()),             # <<<<<<<<<<<<<<
+ *                                        toBytearray(mpegCover.picture()))
  *             elif self.path.endswith(".mp4") or self.path.endswith(".m4a"):
  */
-      __Pyx_XDECREF(__pyx_r);
-      __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_Picture); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 235, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_2);
-      __pyx_t_3 = __pyx_f_6taglib_toUnicode(__pyx_v_mpegCover->mimeType()); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 235, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_3);
+        __Pyx_XDECREF(__pyx_r);
+        __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_Picture); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 227, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_2);
+        __pyx_t_3 = __pyx_f_6taglib_toUnicode(__pyx_v_mpegCover->mimeType()); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 227, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_3);
 
-      /* "taglib.pyx":236
- *                     mpegCover = <ctypes.ID3v2AttachedPictureFrame *> mpegTag.frameList("APIC").front()
- *                     return Picture(toUnicode(mpegCover.mimeType()),
- *                                    toBytearray(mpegCover.picture()))             # <<<<<<<<<<<<<<
+        /* "taglib.pyx":228
+ *                     if mpegCover != NULL:
+ *                         return Picture(toUnicode(mpegCover.mimeType()),
+ *                                        toBytearray(mpegCover.picture()))             # <<<<<<<<<<<<<<
  *             elif self.path.endswith(".mp4") or self.path.endswith(".m4a"):
  *                 mp4File = <ctypes.MP4File *> self.cFile
  */
-      __pyx_t_5 = __pyx_f_6taglib_toBytearray(__pyx_v_mpegCover->picture()); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 236, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_5);
-      __pyx_t_6 = NULL;
-      __pyx_t_7 = 0;
-      if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_2))) {
-        __pyx_t_6 = PyMethod_GET_SELF(__pyx_t_2);
-        if (likely(__pyx_t_6)) {
-          PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_2);
-          __Pyx_INCREF(__pyx_t_6);
-          __Pyx_INCREF(function);
-          __Pyx_DECREF_SET(__pyx_t_2, function);
-          __pyx_t_7 = 1;
+        __pyx_t_6 = __pyx_f_6taglib_toBytearray(__pyx_v_mpegCover->picture()); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 228, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_6);
+        __pyx_t_7 = NULL;
+        __pyx_t_8 = 0;
+        if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_2))) {
+          __pyx_t_7 = PyMethod_GET_SELF(__pyx_t_2);
+          if (likely(__pyx_t_7)) {
+            PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_2);
+            __Pyx_INCREF(__pyx_t_7);
+            __Pyx_INCREF(function);
+            __Pyx_DECREF_SET(__pyx_t_2, function);
+            __pyx_t_8 = 1;
+          }
         }
-      }
-      #if CYTHON_FAST_PYCALL
-      if (PyFunction_Check(__pyx_t_2)) {
-        PyObject *__pyx_temp[3] = {__pyx_t_6, __pyx_t_3, __pyx_t_5};
-        __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 235, __pyx_L1_error)
-        __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
-        __Pyx_GOTREF(__pyx_t_1);
-        __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-        __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-      } else
-      #endif
-      #if CYTHON_FAST_PYCCALL
-      if (__Pyx_PyFastCFunction_Check(__pyx_t_2)) {
-        PyObject *__pyx_temp[3] = {__pyx_t_6, __pyx_t_3, __pyx_t_5};
-        __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 235, __pyx_L1_error)
-        __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
-        __Pyx_GOTREF(__pyx_t_1);
-        __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-        __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-      } else
-      #endif
-      {
-        __pyx_t_8 = PyTuple_New(2+__pyx_t_7); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 235, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_8);
-        if (__pyx_t_6) {
-          __Pyx_GIVEREF(__pyx_t_6); PyTuple_SET_ITEM(__pyx_t_8, 0, __pyx_t_6); __pyx_t_6 = NULL;
+        #if CYTHON_FAST_PYCALL
+        if (PyFunction_Check(__pyx_t_2)) {
+          PyObject *__pyx_temp[3] = {__pyx_t_7, __pyx_t_3, __pyx_t_6};
+          __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_8, 2+__pyx_t_8); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 227, __pyx_L1_error)
+          __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
+          __Pyx_GOTREF(__pyx_t_1);
+          __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+          __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+        } else
+        #endif
+        #if CYTHON_FAST_PYCCALL
+        if (__Pyx_PyFastCFunction_Check(__pyx_t_2)) {
+          PyObject *__pyx_temp[3] = {__pyx_t_7, __pyx_t_3, __pyx_t_6};
+          __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_8, 2+__pyx_t_8); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 227, __pyx_L1_error)
+          __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
+          __Pyx_GOTREF(__pyx_t_1);
+          __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+          __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+        } else
+        #endif
+        {
+          __pyx_t_9 = PyTuple_New(2+__pyx_t_8); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 227, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_9);
+          if (__pyx_t_7) {
+            __Pyx_GIVEREF(__pyx_t_7); PyTuple_SET_ITEM(__pyx_t_9, 0, __pyx_t_7); __pyx_t_7 = NULL;
+          }
+          __Pyx_GIVEREF(__pyx_t_3);
+          PyTuple_SET_ITEM(__pyx_t_9, 0+__pyx_t_8, __pyx_t_3);
+          __Pyx_GIVEREF(__pyx_t_6);
+          PyTuple_SET_ITEM(__pyx_t_9, 1+__pyx_t_8, __pyx_t_6);
+          __pyx_t_3 = 0;
+          __pyx_t_6 = 0;
+          __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_9, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 227, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_1);
+          __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
         }
-        __Pyx_GIVEREF(__pyx_t_3);
-        PyTuple_SET_ITEM(__pyx_t_8, 0+__pyx_t_7, __pyx_t_3);
-        __Pyx_GIVEREF(__pyx_t_5);
-        PyTuple_SET_ITEM(__pyx_t_8, 1+__pyx_t_7, __pyx_t_5);
-        __pyx_t_3 = 0;
-        __pyx_t_5 = 0;
-        __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_8, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 235, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_1);
-        __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-      }
-      __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-      __pyx_r = __pyx_t_1;
-      __pyx_t_1 = 0;
-      goto __pyx_L0;
+        __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+        __pyx_r = __pyx_t_1;
+        __pyx_t_1 = 0;
+        goto __pyx_L0;
 
-      /* "taglib.pyx":233
+        /* "taglib.pyx":226
+ *                 if mpegTag != NULL and not mpegTag.frameList("APIC").isEmpty():
+ *                     mpegCover = <ctypes.ID3v2AttachedPictureFrame *> mpegTag.frameList("APIC").front()
+ *                     if mpegCover != NULL:             # <<<<<<<<<<<<<<
+ *                         return Picture(toUnicode(mpegCover.mimeType()),
+ *                                        toBytearray(mpegCover.picture()))
+ */
+      }
+
+      /* "taglib.pyx":224
  *                 mpegFile = <ctypes.MPEGFile *> self.cFile
  *                 mpegTag = mpegFile.ID3v2Tag(False)
- *                 if mpegTag != NULL:             # <<<<<<<<<<<<<<
+ *                 if mpegTag != NULL and not mpegTag.frameList("APIC").isEmpty():             # <<<<<<<<<<<<<<
  *                     mpegCover = <ctypes.ID3v2AttachedPictureFrame *> mpegTag.frameList("APIC").front()
- *                     return Picture(toUnicode(mpegCover.mimeType()),
+ *                     if mpegCover != NULL:
  */
     }
 
-    /* "taglib.pyx":230
+    /* "taglib.pyx":221
  *                 ctypes.FLACFile *flacFile
  *                 ctypes.FLACPicture *flacCover
  *             if self.path.endswith(".mp3"):             # <<<<<<<<<<<<<<
@@ -4027,62 +4060,62 @@ static PyObject *__pyx_pf_6taglib_4File_7picture___get__(struct __pyx_obj_6tagli
     goto __pyx_L3;
   }
 
-  /* "taglib.pyx":237
- *                     return Picture(toUnicode(mpegCover.mimeType()),
- *                                    toBytearray(mpegCover.picture()))
+  /* "taglib.pyx":229
+ *                         return Picture(toUnicode(mpegCover.mimeType()),
+ *                                        toBytearray(mpegCover.picture()))
  *             elif self.path.endswith(".mp4") or self.path.endswith(".m4a"):             # <<<<<<<<<<<<<<
  *                 mp4File = <ctypes.MP4File *> self.cFile
  *                 mp4Tag = mp4File.tag()
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->path, __pyx_n_s_endswith); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 237, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->path, __pyx_n_s_endswith); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 229, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_8 = NULL;
+  __pyx_t_9 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
-    __pyx_t_8 = PyMethod_GET_SELF(__pyx_t_2);
-    if (likely(__pyx_t_8)) {
+    __pyx_t_9 = PyMethod_GET_SELF(__pyx_t_2);
+    if (likely(__pyx_t_9)) {
       PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_2);
-      __Pyx_INCREF(__pyx_t_8);
+      __Pyx_INCREF(__pyx_t_9);
       __Pyx_INCREF(function);
       __Pyx_DECREF_SET(__pyx_t_2, function);
     }
   }
-  __pyx_t_1 = (__pyx_t_8) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_8, __pyx_kp_u_mp4) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_kp_u_mp4);
-  __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 237, __pyx_L1_error)
+  __pyx_t_1 = (__pyx_t_9) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_9, __pyx_kp_u_mp4) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_kp_u_mp4);
+  __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 229, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_9 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_9 < 0)) __PYX_ERR(0, 237, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_5 < 0)) __PYX_ERR(0, 229, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  if (!__pyx_t_9) {
+  if (!__pyx_t_5) {
   } else {
-    __pyx_t_4 = __pyx_t_9;
-    goto __pyx_L5_bool_binop_done;
+    __pyx_t_4 = __pyx_t_5;
+    goto __pyx_L8_bool_binop_done;
   }
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->path, __pyx_n_s_endswith); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 237, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->path, __pyx_n_s_endswith); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 229, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_8 = NULL;
+  __pyx_t_9 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
-    __pyx_t_8 = PyMethod_GET_SELF(__pyx_t_2);
-    if (likely(__pyx_t_8)) {
+    __pyx_t_9 = PyMethod_GET_SELF(__pyx_t_2);
+    if (likely(__pyx_t_9)) {
       PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_2);
-      __Pyx_INCREF(__pyx_t_8);
+      __Pyx_INCREF(__pyx_t_9);
       __Pyx_INCREF(function);
       __Pyx_DECREF_SET(__pyx_t_2, function);
     }
   }
-  __pyx_t_1 = (__pyx_t_8) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_8, __pyx_kp_u_m4a) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_kp_u_m4a);
-  __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 237, __pyx_L1_error)
+  __pyx_t_1 = (__pyx_t_9) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_9, __pyx_kp_u_m4a) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_kp_u_m4a);
+  __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 229, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_9 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_9 < 0)) __PYX_ERR(0, 237, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_5 < 0)) __PYX_ERR(0, 229, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_4 = __pyx_t_9;
-  __pyx_L5_bool_binop_done:;
+  __pyx_t_4 = __pyx_t_5;
+  __pyx_L8_bool_binop_done:;
   if (__pyx_t_4) {
 
-    /* "taglib.pyx":238
- *                                    toBytearray(mpegCover.picture()))
+    /* "taglib.pyx":230
+ *                                        toBytearray(mpegCover.picture()))
  *             elif self.path.endswith(".mp4") or self.path.endswith(".m4a"):
  *                 mp4File = <ctypes.MP4File *> self.cFile             # <<<<<<<<<<<<<<
  *                 mp4Tag = mp4File.tag()
@@ -4090,229 +4123,248 @@ static PyObject *__pyx_pf_6taglib_4File_7picture___get__(struct __pyx_obj_6tagli
  */
     __pyx_v_mp4File = ((TagLib::MP4::File *)__pyx_v_self->cFile);
 
-    /* "taglib.pyx":239
+    /* "taglib.pyx":231
  *             elif self.path.endswith(".mp4") or self.path.endswith(".m4a"):
  *                 mp4File = <ctypes.MP4File *> self.cFile
  *                 mp4Tag = mp4File.tag()             # <<<<<<<<<<<<<<
  *                 if mp4Tag != NULL:
- *                     mp4CoverList = mp4Tag.itemMap()[ctypes.String("covr", ctypes.Type.UTF8)].toCoverArtList()
+ *                     mp4CoverList = mp4Tag.itemMap() \
  */
     __pyx_v_mp4Tag = __pyx_v_mp4File->tag();
 
-    /* "taglib.pyx":240
+    /* "taglib.pyx":232
  *                 mp4File = <ctypes.MP4File *> self.cFile
  *                 mp4Tag = mp4File.tag()
  *                 if mp4Tag != NULL:             # <<<<<<<<<<<<<<
- *                     mp4CoverList = mp4Tag.itemMap()[ctypes.String("covr", ctypes.Type.UTF8)].toCoverArtList()
- *                     mimeformat = mp4CoverList.front().format()
+ *                     mp4CoverList = mp4Tag.itemMap() \
+ *                         [ctypes.String("covr", ctypes.Type.UTF8)].toCoverArtList()
  */
     __pyx_t_4 = ((__pyx_v_mp4Tag != NULL) != 0);
     if (__pyx_t_4) {
 
-      /* "taglib.pyx":241
- *                 mp4Tag = mp4File.tag()
+      /* "taglib.pyx":234
  *                 if mp4Tag != NULL:
- *                     mp4CoverList = mp4Tag.itemMap()[ctypes.String("covr", ctypes.Type.UTF8)].toCoverArtList()             # <<<<<<<<<<<<<<
- *                     mimeformat = mp4CoverList.front().format()
- *                     if mimeformat == ctypes.MP4CoverArtFormat.JPEG:
+ *                     mp4CoverList = mp4Tag.itemMap() \
+ *                         [ctypes.String("covr", ctypes.Type.UTF8)].toCoverArtList()             # <<<<<<<<<<<<<<
+ *                     if not mp4CoverList.isEmpty():
+ *                         mimeformat = mp4CoverList.front().format()
  */
       __pyx_v_mp4CoverList = (__pyx_v_mp4Tag->itemMap()[TagLib::String(((char *)"covr"), TagLib::String::UTF8)]).toCoverArtList();
 
-      /* "taglib.pyx":242
- *                 if mp4Tag != NULL:
- *                     mp4CoverList = mp4Tag.itemMap()[ctypes.String("covr", ctypes.Type.UTF8)].toCoverArtList()
- *                     mimeformat = mp4CoverList.front().format()             # <<<<<<<<<<<<<<
- *                     if mimeformat == ctypes.MP4CoverArtFormat.JPEG:
- *                         mimetype = "image/jpg"
+      /* "taglib.pyx":235
+ *                     mp4CoverList = mp4Tag.itemMap() \
+ *                         [ctypes.String("covr", ctypes.Type.UTF8)].toCoverArtList()
+ *                     if not mp4CoverList.isEmpty():             # <<<<<<<<<<<<<<
+ *                         mimeformat = mp4CoverList.front().format()
+ *                         if mimeformat == ctypes.MP4CoverArtFormat.JPEG:
  */
-      __pyx_v_mimeformat = __pyx_v_mp4CoverList.front().format();
+      __pyx_t_4 = ((!(__pyx_v_mp4CoverList.isEmpty() != 0)) != 0);
+      if (__pyx_t_4) {
 
-      /* "taglib.pyx":243
- *                     mp4CoverList = mp4Tag.itemMap()[ctypes.String("covr", ctypes.Type.UTF8)].toCoverArtList()
- *                     mimeformat = mp4CoverList.front().format()
- *                     if mimeformat == ctypes.MP4CoverArtFormat.JPEG:             # <<<<<<<<<<<<<<
- *                         mimetype = "image/jpg"
- *                     elif mimeformat == ctypes.MP4CoverArtFormat.PNG:
+        /* "taglib.pyx":236
+ *                         [ctypes.String("covr", ctypes.Type.UTF8)].toCoverArtList()
+ *                     if not mp4CoverList.isEmpty():
+ *                         mimeformat = mp4CoverList.front().format()             # <<<<<<<<<<<<<<
+ *                         if mimeformat == ctypes.MP4CoverArtFormat.JPEG:
+ *                             mimetype = "image/jpg"
  */
-      switch (__pyx_v_mimeformat) {
-        case TagLib::MP4::CoverArt::JPEG:
+        __pyx_v_mimeformat = __pyx_v_mp4CoverList.front().format();
 
-        /* "taglib.pyx":244
- *                     mimeformat = mp4CoverList.front().format()
- *                     if mimeformat == ctypes.MP4CoverArtFormat.JPEG:
- *                         mimetype = "image/jpg"             # <<<<<<<<<<<<<<
- *                     elif mimeformat == ctypes.MP4CoverArtFormat.PNG:
- *                         mimetype = "image/png"
+        /* "taglib.pyx":237
+ *                     if not mp4CoverList.isEmpty():
+ *                         mimeformat = mp4CoverList.front().format()
+ *                         if mimeformat == ctypes.MP4CoverArtFormat.JPEG:             # <<<<<<<<<<<<<<
+ *                             mimetype = "image/jpg"
+ *                         elif mimeformat == ctypes.MP4CoverArtFormat.PNG:
  */
-        __Pyx_INCREF(__pyx_kp_u_image_jpg);
-        __pyx_v_mimetype = __pyx_kp_u_image_jpg;
+        switch (__pyx_v_mimeformat) {
+          case TagLib::MP4::CoverArt::JPEG:
 
-        /* "taglib.pyx":243
- *                     mp4CoverList = mp4Tag.itemMap()[ctypes.String("covr", ctypes.Type.UTF8)].toCoverArtList()
- *                     mimeformat = mp4CoverList.front().format()
- *                     if mimeformat == ctypes.MP4CoverArtFormat.JPEG:             # <<<<<<<<<<<<<<
- *                         mimetype = "image/jpg"
- *                     elif mimeformat == ctypes.MP4CoverArtFormat.PNG:
+          /* "taglib.pyx":238
+ *                         mimeformat = mp4CoverList.front().format()
+ *                         if mimeformat == ctypes.MP4CoverArtFormat.JPEG:
+ *                             mimetype = "image/jpg"             # <<<<<<<<<<<<<<
+ *                         elif mimeformat == ctypes.MP4CoverArtFormat.PNG:
+ *                             mimetype = "image/png"
  */
-        break;
-        case TagLib::MP4::CoverArt::PNG:
+          __Pyx_INCREF(__pyx_kp_u_image_jpg);
+          __pyx_v_mimetype = __pyx_kp_u_image_jpg;
 
-        /* "taglib.pyx":246
- *                         mimetype = "image/jpg"
- *                     elif mimeformat == ctypes.MP4CoverArtFormat.PNG:
- *                         mimetype = "image/png"             # <<<<<<<<<<<<<<
- *                     elif mimeformat == ctypes.MP4CoverArtFormat.BMP:
- *                         mimetype = "image/bmp"
+          /* "taglib.pyx":237
+ *                     if not mp4CoverList.isEmpty():
+ *                         mimeformat = mp4CoverList.front().format()
+ *                         if mimeformat == ctypes.MP4CoverArtFormat.JPEG:             # <<<<<<<<<<<<<<
+ *                             mimetype = "image/jpg"
+ *                         elif mimeformat == ctypes.MP4CoverArtFormat.PNG:
  */
-        __Pyx_INCREF(__pyx_kp_u_image_png);
-        __pyx_v_mimetype = __pyx_kp_u_image_png;
+          break;
+          case TagLib::MP4::CoverArt::PNG:
 
-        /* "taglib.pyx":245
- *                     if mimeformat == ctypes.MP4CoverArtFormat.JPEG:
- *                         mimetype = "image/jpg"
- *                     elif mimeformat == ctypes.MP4CoverArtFormat.PNG:             # <<<<<<<<<<<<<<
- *                         mimetype = "image/png"
- *                     elif mimeformat == ctypes.MP4CoverArtFormat.BMP:
+          /* "taglib.pyx":240
+ *                             mimetype = "image/jpg"
+ *                         elif mimeformat == ctypes.MP4CoverArtFormat.PNG:
+ *                             mimetype = "image/png"             # <<<<<<<<<<<<<<
+ *                         elif mimeformat == ctypes.MP4CoverArtFormat.BMP:
+ *                             mimetype = "image/bmp"
  */
-        break;
-        case TagLib::MP4::CoverArt::BMP:
+          __Pyx_INCREF(__pyx_kp_u_image_png);
+          __pyx_v_mimetype = __pyx_kp_u_image_png;
 
-        /* "taglib.pyx":248
- *                         mimetype = "image/png"
- *                     elif mimeformat == ctypes.MP4CoverArtFormat.BMP:
- *                         mimetype = "image/bmp"             # <<<<<<<<<<<<<<
- *                     elif mimeformat == ctypes.MP4CoverArtFormat.GIF:
- *                         mimetype = "image/gif"
+          /* "taglib.pyx":239
+ *                         if mimeformat == ctypes.MP4CoverArtFormat.JPEG:
+ *                             mimetype = "image/jpg"
+ *                         elif mimeformat == ctypes.MP4CoverArtFormat.PNG:             # <<<<<<<<<<<<<<
+ *                             mimetype = "image/png"
+ *                         elif mimeformat == ctypes.MP4CoverArtFormat.BMP:
  */
-        __Pyx_INCREF(__pyx_kp_u_image_bmp);
-        __pyx_v_mimetype = __pyx_kp_u_image_bmp;
+          break;
+          case TagLib::MP4::CoverArt::BMP:
+
+          /* "taglib.pyx":242
+ *                             mimetype = "image/png"
+ *                         elif mimeformat == ctypes.MP4CoverArtFormat.BMP:
+ *                             mimetype = "image/bmp"             # <<<<<<<<<<<<<<
+ *                         elif mimeformat == ctypes.MP4CoverArtFormat.GIF:
+ *                             mimetype = "image/gif"
+ */
+          __Pyx_INCREF(__pyx_kp_u_image_bmp);
+          __pyx_v_mimetype = __pyx_kp_u_image_bmp;
+
+          /* "taglib.pyx":241
+ *                         elif mimeformat == ctypes.MP4CoverArtFormat.PNG:
+ *                             mimetype = "image/png"
+ *                         elif mimeformat == ctypes.MP4CoverArtFormat.BMP:             # <<<<<<<<<<<<<<
+ *                             mimetype = "image/bmp"
+ *                         elif mimeformat == ctypes.MP4CoverArtFormat.GIF:
+ */
+          break;
+          case TagLib::MP4::CoverArt::GIF:
+
+          /* "taglib.pyx":244
+ *                             mimetype = "image/bmp"
+ *                         elif mimeformat == ctypes.MP4CoverArtFormat.GIF:
+ *                             mimetype = "image/gif"             # <<<<<<<<<<<<<<
+ *                         else:
+ *                             mimetype = ""
+ */
+          __Pyx_INCREF(__pyx_kp_u_image_gif);
+          __pyx_v_mimetype = __pyx_kp_u_image_gif;
+
+          /* "taglib.pyx":243
+ *                         elif mimeformat == ctypes.MP4CoverArtFormat.BMP:
+ *                             mimetype = "image/bmp"
+ *                         elif mimeformat == ctypes.MP4CoverArtFormat.GIF:             # <<<<<<<<<<<<<<
+ *                             mimetype = "image/gif"
+ *                         else:
+ */
+          break;
+          default:
+
+          /* "taglib.pyx":246
+ *                             mimetype = "image/gif"
+ *                         else:
+ *                             mimetype = ""             # <<<<<<<<<<<<<<
+ *                         data = mp4CoverList.front().data()
+ *                         return Picture(mimetype, toBytearray(data))
+ */
+          __Pyx_INCREF(__pyx_kp_u__4);
+          __pyx_v_mimetype = __pyx_kp_u__4;
+          break;
+        }
 
         /* "taglib.pyx":247
- *                     elif mimeformat == ctypes.MP4CoverArtFormat.PNG:
- *                         mimetype = "image/png"
- *                     elif mimeformat == ctypes.MP4CoverArtFormat.BMP:             # <<<<<<<<<<<<<<
- *                         mimetype = "image/bmp"
- *                     elif mimeformat == ctypes.MP4CoverArtFormat.GIF:
- */
-        break;
-        case TagLib::MP4::CoverArt::GIF:
-
-        /* "taglib.pyx":250
- *                         mimetype = "image/bmp"
- *                     elif mimeformat == ctypes.MP4CoverArtFormat.GIF:
- *                         mimetype = "image/gif"             # <<<<<<<<<<<<<<
- *                     else:
- *                         mimetype = ""
- */
-        __Pyx_INCREF(__pyx_kp_u_image_gif);
-        __pyx_v_mimetype = __pyx_kp_u_image_gif;
-
-        /* "taglib.pyx":249
- *                     elif mimeformat == ctypes.MP4CoverArtFormat.BMP:
- *                         mimetype = "image/bmp"
- *                     elif mimeformat == ctypes.MP4CoverArtFormat.GIF:             # <<<<<<<<<<<<<<
- *                         mimetype = "image/gif"
- *                     else:
- */
-        break;
-        default:
-
-        /* "taglib.pyx":252
- *                         mimetype = "image/gif"
- *                     else:
- *                         mimetype = ""             # <<<<<<<<<<<<<<
- *                     data = mp4CoverList.front().data()
- *                     return Picture(mimetype, toBytearray(data))
- */
-        __Pyx_INCREF(__pyx_kp_u__4);
-        __pyx_v_mimetype = __pyx_kp_u__4;
-        break;
-      }
-
-      /* "taglib.pyx":253
- *                     else:
- *                         mimetype = ""
- *                     data = mp4CoverList.front().data()             # <<<<<<<<<<<<<<
- *                     return Picture(mimetype, toBytearray(data))
+ *                         else:
+ *                             mimetype = ""
+ *                         data = mp4CoverList.front().data()             # <<<<<<<<<<<<<<
+ *                         return Picture(mimetype, toBytearray(data))
  *             elif self.path.endswith(".flac"):
  */
-      __pyx_v_data = __pyx_v_mp4CoverList.front().data();
+        __pyx_v_data = __pyx_v_mp4CoverList.front().data();
 
-      /* "taglib.pyx":254
- *                         mimetype = ""
- *                     data = mp4CoverList.front().data()
- *                     return Picture(mimetype, toBytearray(data))             # <<<<<<<<<<<<<<
+        /* "taglib.pyx":248
+ *                             mimetype = ""
+ *                         data = mp4CoverList.front().data()
+ *                         return Picture(mimetype, toBytearray(data))             # <<<<<<<<<<<<<<
  *             elif self.path.endswith(".flac"):
  *                 flacFile = <ctypes.FLACFile *> self.cFile
  */
-      __Pyx_XDECREF(__pyx_r);
-      __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_Picture); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 254, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_2);
-      __pyx_t_8 = __pyx_f_6taglib_toBytearray(__pyx_v_data); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 254, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_8);
-      __pyx_t_5 = NULL;
-      __pyx_t_7 = 0;
-      if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_2))) {
-        __pyx_t_5 = PyMethod_GET_SELF(__pyx_t_2);
-        if (likely(__pyx_t_5)) {
-          PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_2);
-          __Pyx_INCREF(__pyx_t_5);
-          __Pyx_INCREF(function);
-          __Pyx_DECREF_SET(__pyx_t_2, function);
-          __pyx_t_7 = 1;
-        }
-      }
-      #if CYTHON_FAST_PYCALL
-      if (PyFunction_Check(__pyx_t_2)) {
-        PyObject *__pyx_temp[3] = {__pyx_t_5, __pyx_v_mimetype, __pyx_t_8};
-        __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 254, __pyx_L1_error)
-        __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
-        __Pyx_GOTREF(__pyx_t_1);
-        __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-      } else
-      #endif
-      #if CYTHON_FAST_PYCCALL
-      if (__Pyx_PyFastCFunction_Check(__pyx_t_2)) {
-        PyObject *__pyx_temp[3] = {__pyx_t_5, __pyx_v_mimetype, __pyx_t_8};
-        __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 254, __pyx_L1_error)
-        __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
-        __Pyx_GOTREF(__pyx_t_1);
-        __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-      } else
-      #endif
-      {
-        __pyx_t_3 = PyTuple_New(2+__pyx_t_7); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 254, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_3);
-        if (__pyx_t_5) {
-          __Pyx_GIVEREF(__pyx_t_5); PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_5); __pyx_t_5 = NULL;
-        }
-        __Pyx_INCREF(__pyx_v_mimetype);
-        __Pyx_GIVEREF(__pyx_v_mimetype);
-        PyTuple_SET_ITEM(__pyx_t_3, 0+__pyx_t_7, __pyx_v_mimetype);
-        __Pyx_GIVEREF(__pyx_t_8);
-        PyTuple_SET_ITEM(__pyx_t_3, 1+__pyx_t_7, __pyx_t_8);
+        __Pyx_XDECREF(__pyx_r);
+        __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_Picture); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 248, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_2);
+        __pyx_t_9 = __pyx_f_6taglib_toBytearray(__pyx_v_data); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 248, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_9);
+        __pyx_t_6 = NULL;
         __pyx_t_8 = 0;
-        __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_3, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 254, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_1);
-        __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-      }
-      __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-      __pyx_r = __pyx_t_1;
-      __pyx_t_1 = 0;
-      goto __pyx_L0;
+        if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_2))) {
+          __pyx_t_6 = PyMethod_GET_SELF(__pyx_t_2);
+          if (likely(__pyx_t_6)) {
+            PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_2);
+            __Pyx_INCREF(__pyx_t_6);
+            __Pyx_INCREF(function);
+            __Pyx_DECREF_SET(__pyx_t_2, function);
+            __pyx_t_8 = 1;
+          }
+        }
+        #if CYTHON_FAST_PYCALL
+        if (PyFunction_Check(__pyx_t_2)) {
+          PyObject *__pyx_temp[3] = {__pyx_t_6, __pyx_v_mimetype, __pyx_t_9};
+          __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_8, 2+__pyx_t_8); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 248, __pyx_L1_error)
+          __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
+          __Pyx_GOTREF(__pyx_t_1);
+          __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
+        } else
+        #endif
+        #if CYTHON_FAST_PYCCALL
+        if (__Pyx_PyFastCFunction_Check(__pyx_t_2)) {
+          PyObject *__pyx_temp[3] = {__pyx_t_6, __pyx_v_mimetype, __pyx_t_9};
+          __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_8, 2+__pyx_t_8); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 248, __pyx_L1_error)
+          __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
+          __Pyx_GOTREF(__pyx_t_1);
+          __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
+        } else
+        #endif
+        {
+          __pyx_t_3 = PyTuple_New(2+__pyx_t_8); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 248, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_3);
+          if (__pyx_t_6) {
+            __Pyx_GIVEREF(__pyx_t_6); PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_6); __pyx_t_6 = NULL;
+          }
+          __Pyx_INCREF(__pyx_v_mimetype);
+          __Pyx_GIVEREF(__pyx_v_mimetype);
+          PyTuple_SET_ITEM(__pyx_t_3, 0+__pyx_t_8, __pyx_v_mimetype);
+          __Pyx_GIVEREF(__pyx_t_9);
+          PyTuple_SET_ITEM(__pyx_t_3, 1+__pyx_t_8, __pyx_t_9);
+          __pyx_t_9 = 0;
+          __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_3, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 248, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_1);
+          __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+        }
+        __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+        __pyx_r = __pyx_t_1;
+        __pyx_t_1 = 0;
+        goto __pyx_L0;
 
-      /* "taglib.pyx":240
+        /* "taglib.pyx":235
+ *                     mp4CoverList = mp4Tag.itemMap() \
+ *                         [ctypes.String("covr", ctypes.Type.UTF8)].toCoverArtList()
+ *                     if not mp4CoverList.isEmpty():             # <<<<<<<<<<<<<<
+ *                         mimeformat = mp4CoverList.front().format()
+ *                         if mimeformat == ctypes.MP4CoverArtFormat.JPEG:
+ */
+      }
+
+      /* "taglib.pyx":232
  *                 mp4File = <ctypes.MP4File *> self.cFile
  *                 mp4Tag = mp4File.tag()
  *                 if mp4Tag != NULL:             # <<<<<<<<<<<<<<
- *                     mp4CoverList = mp4Tag.itemMap()[ctypes.String("covr", ctypes.Type.UTF8)].toCoverArtList()
- *                     mimeformat = mp4CoverList.front().format()
+ *                     mp4CoverList = mp4Tag.itemMap() \
+ *                         [ctypes.String("covr", ctypes.Type.UTF8)].toCoverArtList()
  */
     }
 
-    /* "taglib.pyx":237
- *                     return Picture(toUnicode(mpegCover.mimeType()),
- *                                    toBytearray(mpegCover.picture()))
+    /* "taglib.pyx":229
+ *                         return Picture(toUnicode(mpegCover.mimeType()),
+ *                                        toBytearray(mpegCover.picture()))
  *             elif self.path.endswith(".mp4") or self.path.endswith(".m4a"):             # <<<<<<<<<<<<<<
  *                 mp4File = <ctypes.MP4File *> self.cFile
  *                 mp4Tag = mp4File.tag()
@@ -4320,14 +4372,14 @@ static PyObject *__pyx_pf_6taglib_4File_7picture___get__(struct __pyx_obj_6tagli
     goto __pyx_L3;
   }
 
-  /* "taglib.pyx":255
- *                     data = mp4CoverList.front().data()
- *                     return Picture(mimetype, toBytearray(data))
+  /* "taglib.pyx":249
+ *                         data = mp4CoverList.front().data()
+ *                         return Picture(mimetype, toBytearray(data))
  *             elif self.path.endswith(".flac"):             # <<<<<<<<<<<<<<
  *                 flacFile = <ctypes.FLACFile *> self.cFile
  *                 if not flacFile.pictureList().isEmpty():
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->path, __pyx_n_s_endswith); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 255, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->path, __pyx_n_s_endswith); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 249, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -4341,15 +4393,15 @@ static PyObject *__pyx_pf_6taglib_4File_7picture___get__(struct __pyx_obj_6tagli
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_3, __pyx_kp_u_flac) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_kp_u_flac);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 255, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 249, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 255, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 249, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_4) {
 
-    /* "taglib.pyx":256
- *                     return Picture(mimetype, toBytearray(data))
+    /* "taglib.pyx":250
+ *                         return Picture(mimetype, toBytearray(data))
  *             elif self.path.endswith(".flac"):
  *                 flacFile = <ctypes.FLACFile *> self.cFile             # <<<<<<<<<<<<<<
  *                 if not flacFile.pictureList().isEmpty():
@@ -4357,112 +4409,131 @@ static PyObject *__pyx_pf_6taglib_4File_7picture___get__(struct __pyx_obj_6tagli
  */
     __pyx_v_flacFile = ((TagLib::FLAC::File *)__pyx_v_self->cFile);
 
-    /* "taglib.pyx":257
+    /* "taglib.pyx":251
  *             elif self.path.endswith(".flac"):
  *                 flacFile = <ctypes.FLACFile *> self.cFile
  *                 if not flacFile.pictureList().isEmpty():             # <<<<<<<<<<<<<<
  *                     flacCover = flacFile.pictureList().front()
- *                     return Picture(toUnicode(flacCover.mimeType()),
+ *                     if flacCover != NULL:
  */
     __pyx_t_4 = ((!(__pyx_v_flacFile->pictureList().isEmpty() != 0)) != 0);
     if (__pyx_t_4) {
 
-      /* "taglib.pyx":258
+      /* "taglib.pyx":252
  *                 flacFile = <ctypes.FLACFile *> self.cFile
  *                 if not flacFile.pictureList().isEmpty():
  *                     flacCover = flacFile.pictureList().front()             # <<<<<<<<<<<<<<
- *                     return Picture(toUnicode(flacCover.mimeType()),
- *                                 toBytearray(flacCover.data()))
+ *                     if flacCover != NULL:
+ *                         return Picture(toUnicode(flacCover.mimeType()),
  */
       __pyx_v_flacCover = __pyx_v_flacFile->pictureList().front();
 
-      /* "taglib.pyx":259
+      /* "taglib.pyx":253
  *                 if not flacFile.pictureList().isEmpty():
  *                     flacCover = flacFile.pictureList().front()
- *                     return Picture(toUnicode(flacCover.mimeType()),             # <<<<<<<<<<<<<<
- *                                 toBytearray(flacCover.data()))
+ *                     if flacCover != NULL:             # <<<<<<<<<<<<<<
+ *                         return Picture(toUnicode(flacCover.mimeType()),
+ *                                        toBytearray(flacCover.data()))
+ */
+      __pyx_t_4 = ((__pyx_v_flacCover != NULL) != 0);
+      if (__pyx_t_4) {
+
+        /* "taglib.pyx":254
+ *                     flacCover = flacFile.pictureList().front()
+ *                     if flacCover != NULL:
+ *                         return Picture(toUnicode(flacCover.mimeType()),             # <<<<<<<<<<<<<<
+ *                                        toBytearray(flacCover.data()))
  *             return None
  */
-      __Pyx_XDECREF(__pyx_r);
-      __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_Picture); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 259, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_2);
-      __pyx_t_3 = __pyx_f_6taglib_toUnicode(__pyx_v_flacCover->mimeType()); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 259, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_3);
+        __Pyx_XDECREF(__pyx_r);
+        __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_Picture); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 254, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_2);
+        __pyx_t_3 = __pyx_f_6taglib_toUnicode(__pyx_v_flacCover->mimeType()); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 254, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_3);
 
-      /* "taglib.pyx":260
- *                     flacCover = flacFile.pictureList().front()
- *                     return Picture(toUnicode(flacCover.mimeType()),
- *                                 toBytearray(flacCover.data()))             # <<<<<<<<<<<<<<
+        /* "taglib.pyx":255
+ *                     if flacCover != NULL:
+ *                         return Picture(toUnicode(flacCover.mimeType()),
+ *                                        toBytearray(flacCover.data()))             # <<<<<<<<<<<<<<
  *             return None
  * 
  */
-      __pyx_t_8 = __pyx_f_6taglib_toBytearray(__pyx_v_flacCover->data()); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 260, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_8);
-      __pyx_t_5 = NULL;
-      __pyx_t_7 = 0;
-      if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_2))) {
-        __pyx_t_5 = PyMethod_GET_SELF(__pyx_t_2);
-        if (likely(__pyx_t_5)) {
-          PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_2);
-          __Pyx_INCREF(__pyx_t_5);
-          __Pyx_INCREF(function);
-          __Pyx_DECREF_SET(__pyx_t_2, function);
-          __pyx_t_7 = 1;
-        }
-      }
-      #if CYTHON_FAST_PYCALL
-      if (PyFunction_Check(__pyx_t_2)) {
-        PyObject *__pyx_temp[3] = {__pyx_t_5, __pyx_t_3, __pyx_t_8};
-        __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 259, __pyx_L1_error)
-        __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
-        __Pyx_GOTREF(__pyx_t_1);
-        __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-        __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-      } else
-      #endif
-      #if CYTHON_FAST_PYCCALL
-      if (__Pyx_PyFastCFunction_Check(__pyx_t_2)) {
-        PyObject *__pyx_temp[3] = {__pyx_t_5, __pyx_t_3, __pyx_t_8};
-        __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 259, __pyx_L1_error)
-        __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
-        __Pyx_GOTREF(__pyx_t_1);
-        __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-        __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-      } else
-      #endif
-      {
-        __pyx_t_6 = PyTuple_New(2+__pyx_t_7); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 259, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_6);
-        if (__pyx_t_5) {
-          __Pyx_GIVEREF(__pyx_t_5); PyTuple_SET_ITEM(__pyx_t_6, 0, __pyx_t_5); __pyx_t_5 = NULL;
-        }
-        __Pyx_GIVEREF(__pyx_t_3);
-        PyTuple_SET_ITEM(__pyx_t_6, 0+__pyx_t_7, __pyx_t_3);
-        __Pyx_GIVEREF(__pyx_t_8);
-        PyTuple_SET_ITEM(__pyx_t_6, 1+__pyx_t_7, __pyx_t_8);
-        __pyx_t_3 = 0;
+        __pyx_t_9 = __pyx_f_6taglib_toBytearray(__pyx_v_flacCover->data()); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 255, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_9);
+        __pyx_t_6 = NULL;
         __pyx_t_8 = 0;
-        __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_6, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 259, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_1);
-        __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-      }
-      __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-      __pyx_r = __pyx_t_1;
-      __pyx_t_1 = 0;
-      goto __pyx_L0;
+        if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_2))) {
+          __pyx_t_6 = PyMethod_GET_SELF(__pyx_t_2);
+          if (likely(__pyx_t_6)) {
+            PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_2);
+            __Pyx_INCREF(__pyx_t_6);
+            __Pyx_INCREF(function);
+            __Pyx_DECREF_SET(__pyx_t_2, function);
+            __pyx_t_8 = 1;
+          }
+        }
+        #if CYTHON_FAST_PYCALL
+        if (PyFunction_Check(__pyx_t_2)) {
+          PyObject *__pyx_temp[3] = {__pyx_t_6, __pyx_t_3, __pyx_t_9};
+          __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_8, 2+__pyx_t_8); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 254, __pyx_L1_error)
+          __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
+          __Pyx_GOTREF(__pyx_t_1);
+          __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+          __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
+        } else
+        #endif
+        #if CYTHON_FAST_PYCCALL
+        if (__Pyx_PyFastCFunction_Check(__pyx_t_2)) {
+          PyObject *__pyx_temp[3] = {__pyx_t_6, __pyx_t_3, __pyx_t_9};
+          __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_8, 2+__pyx_t_8); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 254, __pyx_L1_error)
+          __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
+          __Pyx_GOTREF(__pyx_t_1);
+          __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+          __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
+        } else
+        #endif
+        {
+          __pyx_t_7 = PyTuple_New(2+__pyx_t_8); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 254, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_7);
+          if (__pyx_t_6) {
+            __Pyx_GIVEREF(__pyx_t_6); PyTuple_SET_ITEM(__pyx_t_7, 0, __pyx_t_6); __pyx_t_6 = NULL;
+          }
+          __Pyx_GIVEREF(__pyx_t_3);
+          PyTuple_SET_ITEM(__pyx_t_7, 0+__pyx_t_8, __pyx_t_3);
+          __Pyx_GIVEREF(__pyx_t_9);
+          PyTuple_SET_ITEM(__pyx_t_7, 1+__pyx_t_8, __pyx_t_9);
+          __pyx_t_3 = 0;
+          __pyx_t_9 = 0;
+          __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_7, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 254, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_1);
+          __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+        }
+        __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+        __pyx_r = __pyx_t_1;
+        __pyx_t_1 = 0;
+        goto __pyx_L0;
 
-      /* "taglib.pyx":257
+        /* "taglib.pyx":253
+ *                 if not flacFile.pictureList().isEmpty():
+ *                     flacCover = flacFile.pictureList().front()
+ *                     if flacCover != NULL:             # <<<<<<<<<<<<<<
+ *                         return Picture(toUnicode(flacCover.mimeType()),
+ *                                        toBytearray(flacCover.data()))
+ */
+      }
+
+      /* "taglib.pyx":251
  *             elif self.path.endswith(".flac"):
  *                 flacFile = <ctypes.FLACFile *> self.cFile
  *                 if not flacFile.pictureList().isEmpty():             # <<<<<<<<<<<<<<
  *                     flacCover = flacFile.pictureList().front()
- *                     return Picture(toUnicode(flacCover.mimeType()),
+ *                     if flacCover != NULL:
  */
     }
 
-    /* "taglib.pyx":255
- *                     data = mp4CoverList.front().data()
- *                     return Picture(mimetype, toBytearray(data))
+    /* "taglib.pyx":249
+ *                         data = mp4CoverList.front().data()
+ *                         return Picture(mimetype, toBytearray(data))
  *             elif self.path.endswith(".flac"):             # <<<<<<<<<<<<<<
  *                 flacFile = <ctypes.FLACFile *> self.cFile
  *                 if not flacFile.pictureList().isEmpty():
@@ -4470,9 +4541,9 @@ static PyObject *__pyx_pf_6taglib_4File_7picture___get__(struct __pyx_obj_6tagli
   }
   __pyx_L3:;
 
-  /* "taglib.pyx":261
- *                     return Picture(toUnicode(flacCover.mimeType()),
- *                                 toBytearray(flacCover.data()))
+  /* "taglib.pyx":256
+ *                         return Picture(toUnicode(flacCover.mimeType()),
+ *                                        toBytearray(flacCover.data()))
  *             return None             # <<<<<<<<<<<<<<
  * 
  *     def __repr__(self):
@@ -4481,7 +4552,7 @@ static PyObject *__pyx_pf_6taglib_4File_7picture___get__(struct __pyx_obj_6tagli
   __pyx_r = Py_None; __Pyx_INCREF(Py_None);
   goto __pyx_L0;
 
-  /* "taglib.pyx":217
+  /* "taglib.pyx":208
  * 
  *     property picture:
  *         def __get__(self):             # <<<<<<<<<<<<<<
@@ -4494,9 +4565,9 @@ static PyObject *__pyx_pf_6taglib_4File_7picture___get__(struct __pyx_obj_6tagli
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_XDECREF(__pyx_t_5);
   __Pyx_XDECREF(__pyx_t_6);
-  __Pyx_XDECREF(__pyx_t_8);
+  __Pyx_XDECREF(__pyx_t_7);
+  __Pyx_XDECREF(__pyx_t_9);
   __Pyx_AddTraceback("taglib.File.picture.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
@@ -4506,7 +4577,7 @@ static PyObject *__pyx_pf_6taglib_4File_7picture___get__(struct __pyx_obj_6tagli
   return __pyx_r;
 }
 
-/* "taglib.pyx":263
+/* "taglib.pyx":258
  *             return None
  * 
  *     def __repr__(self):             # <<<<<<<<<<<<<<
@@ -4535,13 +4606,13 @@ static PyObject *__pyx_pf_6taglib_4File_12__repr__(struct __pyx_obj_6taglib_File
   PyObject *__pyx_t_4 = NULL;
   __Pyx_RefNannySetupContext("__repr__", 0);
 
-  /* "taglib.pyx":264
+  /* "taglib.pyx":259
  * 
  *     def __repr__(self):
  *         return f"File('{self.path}')"             # <<<<<<<<<<<<<<
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PyTuple_New(3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 264, __pyx_L1_error)
+  __pyx_t_1 = PyTuple_New(3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 259, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_t_2 = 0;
   __pyx_t_3 = 127;
@@ -4549,7 +4620,7 @@ static PyObject *__pyx_pf_6taglib_4File_12__repr__(struct __pyx_obj_6taglib_File
   __pyx_t_2 += 6;
   __Pyx_GIVEREF(__pyx_kp_u_File);
   PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_kp_u_File);
-  __pyx_t_4 = __Pyx_PyObject_FormatSimple(__pyx_v_self->path, __pyx_empty_unicode); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 264, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_FormatSimple(__pyx_v_self->path, __pyx_empty_unicode); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 259, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __pyx_t_3 = (__Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_4) > __pyx_t_3) ? __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_4) : __pyx_t_3;
   __pyx_t_2 += __Pyx_PyUnicode_GET_LENGTH(__pyx_t_4);
@@ -4560,14 +4631,14 @@ static PyObject *__pyx_pf_6taglib_4File_12__repr__(struct __pyx_obj_6taglib_File
   __pyx_t_2 += 2;
   __Pyx_GIVEREF(__pyx_kp_u__5);
   PyTuple_SET_ITEM(__pyx_t_1, 2, __pyx_kp_u__5);
-  __pyx_t_4 = __Pyx_PyUnicode_Join(__pyx_t_1, 3, __pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 264, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyUnicode_Join(__pyx_t_1, 3, __pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 259, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_r = __pyx_t_4;
   __pyx_t_4 = 0;
   goto __pyx_L0;
 
-  /* "taglib.pyx":263
+  /* "taglib.pyx":258
  *             return None
  * 
  *     def __repr__(self):             # <<<<<<<<<<<<<<
@@ -5370,6 +5441,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_kp_u__5, __pyx_k__5, sizeof(__pyx_k__5), 0, 1, 0, 0},
   {&__pyx_n_s_append, __pyx_k_append, sizeof(__pyx_k_append), 0, 0, 1, 1},
   {&__pyx_n_s_cline_in_traceback, __pyx_k_cline_in_traceback, sizeof(__pyx_k_cline_in_traceback), 0, 0, 1, 1},
+  {&__pyx_n_s_data, __pyx_k_data, sizeof(__pyx_k_data), 0, 0, 1, 1},
   {&__pyx_n_s_decode, __pyx_k_decode, sizeof(__pyx_k_decode), 0, 0, 1, 1},
   {&__pyx_n_s_doc, __pyx_k_doc, sizeof(__pyx_k_doc), 0, 0, 1, 1},
   {&__pyx_n_s_encode, __pyx_k_encode, sizeof(__pyx_k_encode), 0, 0, 1, 1},
@@ -5392,7 +5464,6 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_name, __pyx_k_name, sizeof(__pyx_k_name), 0, 0, 1, 1},
   {&__pyx_kp_s_no_default___reduce___due_to_non, __pyx_k_no_default___reduce___due_to_non, sizeof(__pyx_k_no_default___reduce___due_to_non), 0, 0, 1, 0},
   {&__pyx_n_s_path, __pyx_k_path, sizeof(__pyx_k_path), 0, 0, 1, 1},
-  {&__pyx_n_s_picture, __pyx_k_picture, sizeof(__pyx_k_picture), 0, 0, 1, 1},
   {&__pyx_n_s_prepare, __pyx_k_prepare, sizeof(__pyx_k_prepare), 0, 0, 1, 1},
   {&__pyx_n_s_pyx_vtable, __pyx_k_pyx_vtable, sizeof(__pyx_k_pyx_vtable), 0, 0, 1, 1},
   {&__pyx_n_s_qualname, __pyx_k_qualname, sizeof(__pyx_k_qualname), 0, 0, 1, 1},
@@ -5479,11 +5550,11 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   /* "taglib.pyx":40
  * class Picture:
  * 
- *     def __init__(self, mimetype, picture):             # <<<<<<<<<<<<<<
+ *     def __init__(self, mimetype, data):             # <<<<<<<<<<<<<<
  *         self.mimetype = mimetype
- *         self.picture = picture
+ *         self.data = data
  */
-  __pyx_tuple__8 = PyTuple_Pack(3, __pyx_n_s_self, __pyx_n_s_mimetype, __pyx_n_s_picture); if (unlikely(!__pyx_tuple__8)) __PYX_ERR(0, 40, __pyx_L1_error)
+  __pyx_tuple__8 = PyTuple_Pack(3, __pyx_n_s_self, __pyx_n_s_mimetype, __pyx_n_s_data); if (unlikely(!__pyx_tuple__8)) __PYX_ERR(0, 40, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__8);
   __Pyx_GIVEREF(__pyx_tuple__8);
   __pyx_codeobj__9 = (PyObject*)__Pyx_PyCode_New(3, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__8, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_src_taglib_pyx, __pyx_n_s_init, 40, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__9)) __PYX_ERR(0, 40, __pyx_L1_error)
@@ -5808,7 +5879,7 @@ if (!__Pyx_RefNanny) {
  * 
  * class Picture:             # <<<<<<<<<<<<<<
  * 
- *     def __init__(self, mimetype, picture):
+ *     def __init__(self, mimetype, data):
  */
   __pyx_t_1 = __Pyx_Py3MetaclassPrepare((PyObject *) NULL, __pyx_empty_tuple, __pyx_n_s_Picture, __pyx_n_s_Picture, (PyObject *) NULL, __pyx_n_s_taglib, (PyObject *) NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 38, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
@@ -5816,9 +5887,9 @@ if (!__Pyx_RefNanny) {
   /* "taglib.pyx":40
  * class Picture:
  * 
- *     def __init__(self, mimetype, picture):             # <<<<<<<<<<<<<<
+ *     def __init__(self, mimetype, data):             # <<<<<<<<<<<<<<
  *         self.mimetype = mimetype
- *         self.picture = picture
+ *         self.data = data
  */
   __pyx_t_2 = __Pyx_CyFunction_NewEx(&__pyx_mdef_6taglib_7Picture_1__init__, 0, __pyx_n_s_Picture___init, NULL, __pyx_n_s_taglib, __pyx_d, ((PyObject *)__pyx_codeobj__9)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 40, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
@@ -5830,7 +5901,7 @@ if (!__Pyx_RefNanny) {
  * 
  * class Picture:             # <<<<<<<<<<<<<<
  * 
- *     def __init__(self, mimetype, picture):
+ *     def __init__(self, mimetype, data):
  */
   __pyx_t_2 = __Pyx_Py3ClassCreate(((PyObject*)&__Pyx_DefaultClassType), __pyx_n_s_Picture, __pyx_empty_tuple, __pyx_t_1, NULL, 0, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 38, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
