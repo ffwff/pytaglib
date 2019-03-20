@@ -223,32 +223,35 @@ cdef class File:
                 mpegTag = mpegFile.ID3v2Tag(False)
                 if mpegTag != NULL:
                     mpegCover = <ctypes.ID3v2AttachedPictureFrame *> mpegTag.frameList("APIC").front()
-                    return Picture(toUnicode(mpegCover.mimeType()),
-                                   toBytearray(mpegCover.picture()))
+                    if mpegCover != NULL:
+                        return Picture(toUnicode(mpegCover.mimeType()),
+                                       toBytearray(mpegCover.picture()))
             elif self.path.endswith(".mp4") or self.path.endswith(".m4a"):
                 mp4File = <ctypes.MP4File *> self.cFile
                 mp4Tag = mp4File.tag()
                 if mp4Tag != NULL:
                     mp4CoverList = mp4Tag.itemMap()[ctypes.String("covr", ctypes.Type.UTF8)].toCoverArtList()
-                    mimeformat = mp4CoverList.front().format()
-                    if mimeformat == ctypes.MP4CoverArtFormat.JPEG:
-                        mimetype = "image/jpg"
-                    elif mimeformat == ctypes.MP4CoverArtFormat.PNG:
-                        mimetype = "image/png"
-                    elif mimeformat == ctypes.MP4CoverArtFormat.BMP:
-                        mimetype = "image/bmp"
-                    elif mimeformat == ctypes.MP4CoverArtFormat.GIF:
-                        mimetype = "image/gif"
-                    else:
-                        mimetype = ""
-                    data = mp4CoverList.front().data()
-                    return Picture(mimetype, toBytearray(data))
+                    if not mp4CoverList.isEmpty():
+                        mimeformat = mp4CoverList.front().format()
+                        if mimeformat == ctypes.MP4CoverArtFormat.JPEG:
+                            mimetype = "image/jpg"
+                        elif mimeformat == ctypes.MP4CoverArtFormat.PNG:
+                            mimetype = "image/png"
+                        elif mimeformat == ctypes.MP4CoverArtFormat.BMP:
+                            mimetype = "image/bmp"
+                        elif mimeformat == ctypes.MP4CoverArtFormat.GIF:
+                            mimetype = "image/gif"
+                        else:
+                            mimetype = ""
+                        data = mp4CoverList.front().data()
+                        return Picture(mimetype, toBytearray(data))
             elif self.path.endswith(".flac"):
                 flacFile = <ctypes.FLACFile *> self.cFile
                 if not flacFile.pictureList().isEmpty():
                     flacCover = flacFile.pictureList().front()
-                    return Picture(toUnicode(flacCover.mimeType()),
-                                toBytearray(flacCover.data()))
+                    if flacCover != NULL:
+                        return Picture(toUnicode(flacCover.mimeType()),
+                                       toBytearray(flacCover.data()))
             return None
 
     def __repr__(self):

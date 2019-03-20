@@ -96,6 +96,7 @@ cdef extern from 'taglib/mp4coverart.h' namespace 'TagLib::MP4::CoverArt':
 
     cdef cppclass MP4CoverArtList 'TagLib::MP4::CoverArtList':
         MP4CoverArt front()
+        bint isEmpty()
 
 cdef extern from 'taglib/mp4item.h' namespace 'TagLib::MP4':
     cdef cppclass MP4Item 'TagLib::MP4::Item':
