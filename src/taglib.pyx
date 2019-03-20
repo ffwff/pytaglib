@@ -37,9 +37,9 @@ cdef dict propertyMapToDict(ctypes.PropertyMap map):
 
 class Picture:
 
-    def __init__(self, mimetype, picture):
+    def __init__(self, mimetype, data):
         self.mimetype = mimetype
-        self.picture = picture
+        self.data = data
 
 cdef class File:
     """Class representing an audio file with metadata ("tags").
