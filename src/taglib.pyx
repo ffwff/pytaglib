@@ -9,6 +9,7 @@
 
 from libcpp.utility cimport pair
 cimport ctypes
+from cpython.bytes cimport PyBytes_FromStringAndSize
 
 version = '1.4.4'
 
@@ -16,6 +17,8 @@ cdef unicode toUnicode(ctypes.String s):
     """Converts TagLib::String to a unicode string (``str`` in Python 3, ``unicode`` else)."""
     return s.to8Bit(True).decode('UTF-8', 'replace')
 
+cdef bytes toBytearray(ctypes.ByteVector v):
+    return PyBytes_FromStringAndSize(v.data(), v.size())
 
 cdef dict propertyMapToDict(ctypes.PropertyMap map):
     """Convert a TagLib::PropertyMap to a dict mapping unicode string to list of unicode strings."""
@@ -32,15 +35,20 @@ cdef dict propertyMapToDict(ctypes.PropertyMap map):
             dct[tag].append(toUnicode(value))
     return dct
 
+class Picture:
+
+    def __init__(self, mimetype, picture):
+        self.mimetype = mimetype
+        self.picture = picture
 
 cdef class File:
     """Class representing an audio file with metadata ("tags").
-    
+
     To read tags from an audio file, create a *File* object, passing the file's path to the
     constructor (should be a unicode string):
-    
+
     >>> f = taglib.File('/path/to/file.ogg')
-    
+
     The tags are stored in the attribute *tags* as a *dict* mapping strings (tag names)
     to lists of strings (tag values).
 
@@ -51,12 +59,12 @@ cdef class File:
     as strings (e.g. cover art, proprietary data written by some programs, ...), according
     identifiers will be placed into the *unsupported* attribute of the File object. Using the
     method *removeUnsupportedProperties*, some or all of those can be removed.
-    
+
     Additionally, the readonly attributes *length*, *bitrate*, *sampleRate*, and *channels* are
     available with their obvious meanings.
 
     >>> print('File length: {}'.format(f.length))
-    
+
     Changes to the *tags* attribute are stored using the *save* method.
 
     >>> f.save()
@@ -88,11 +96,11 @@ cdef class File:
 
     cdef void readProperties(self):
         """Convert the Taglib::PropertyMap of the wrapped Taglib::File object into a python dict.
-        
+
         This method is not accessible from Python, and is called only once, immediately after
         object creation.
         """
-        
+
         cdef:
             ctypes.PropertyMap cTags = self.cFile.properties()
             ctypes.String cString
@@ -104,7 +112,7 @@ cdef class File:
 
     def save(self):
         """Store the tags currently hold in the `tags` attribute into the file.
-        
+
         If some tags cannot be stored because the underlying metadata format does not support them,
         the unsuccesful tags are returned as a "sub-dictionary" of `self.tags` which will be empty
         if everything is ok.
@@ -145,7 +153,7 @@ cdef class File:
         if not success:
             raise OSError('Unable to save tags: Unknown OS error')
         return propertyMapToDict(cRemaining)
-    
+
     def removeUnsupportedProperties(self, properties):
         """This is a direct binding for the corresponding TagLib method."""
         if not self.cFile:
@@ -165,36 +173,83 @@ cdef class File:
     def __dealloc__(self):
         if self.cFile:
             del self.cFile
-        
+
     property length:
         def __get__(self):
             if not self.cFile:
                 raise ValueError('I/O operation on closed file.')
             return self.cFile.audioProperties().length()
-            
+
     property bitrate:
         def __get__(self):
             if not self.cFile:
                 raise ValueError('I/O operation on closed file.')
             return self.cFile.audioProperties().bitrate()
-    
+
     property sampleRate:
         def __get__(self):
             if not self.cFile:
                 raise ValueError('I/O operation on closed file.')
             return self.cFile.audioProperties().sampleRate()
-            
+
     property channels:
         def __get__(self):
             if not self.cFile:
                 raise ValueError('I/O operation on closed file.')
             return self.cFile.audioProperties().channels()
-    
+
     property readOnly:
         def __get__(self):
             if not self.cFile:
                 raise ValueError('I/O operation on closed file.')
             return self.cFile.readOnly()
-        
+
+    property picture:
+        def __get__(self):
+            cdef:
+                # mpeg
+                ctypes.MPEGFile *mpegFile
+                ctypes.ID3v2Tag *mpegTag
+                ctypes.ID3v2AttachedPictureFrame *mpegCover
+                # mp4
+                ctypes.MP4File *mp4File
+                ctypes.MP4Tag *mp4Tag
+                ctypes.MP4CoverArtList mp4CoverList
+                # flac
+                ctypes.FLACFile *flacFile
+                ctypes.FLACPicture *flacCover
+            if self.path.endswith(".mp3"):
+                mpegFile = <ctypes.MPEGFile *> self.cFile
+                mpegTag = mpegFile.ID3v2Tag(False)
+                if mpegTag != NULL:
+                    mpegCover = <ctypes.ID3v2AttachedPictureFrame *> mpegTag.frameList("APIC").front()
+                    return Picture(toUnicode(mpegCover.mimeType()),
+                                   toBytearray(mpegCover.picture()))
+            elif self.path.endswith(".mp4") or self.path.endswith(".m4a"):
+                mp4File = <ctypes.MP4File *> self.cFile
+                mp4Tag = mp4File.tag()
+                if mp4Tag != NULL:
+                    mp4CoverList = mp4Tag.itemMap()[ctypes.String("covr", ctypes.Type.UTF8)].toCoverArtList()
+                    mimeformat = mp4CoverList.front().format()
+                    if mimeformat == ctypes.MP4CoverArtFormat.JPEG:
+                        mimetype = "image/jpg"
+                    elif mimeformat == ctypes.MP4CoverArtFormat.PNG:
+                        mimetype = "image/png"
+                    elif mimeformat == ctypes.MP4CoverArtFormat.BMP:
+                        mimetype = "image/bmp"
+                    elif mimeformat == ctypes.MP4CoverArtFormat.GIF:
+                        mimetype = "image/gif"
+                    else:
+                        mimetype = ""
+                    data = mp4CoverList.front().data()
+                    return Picture(mimetype, toBytearray(data))
+            elif self.path.endswith(".flac"):
+                flacFile = <ctypes.FLACFile *> self.cFile
+                if not flacFile.pictureList().isEmpty():
+                    flacCover = flacFile.pictureList().front()
+                    return Picture(toUnicode(flacCover.mimeType()),
+                                toBytearray(flacCover.data()))
+            return None
+
     def __repr__(self):
         return f"File('{self.path}')"
